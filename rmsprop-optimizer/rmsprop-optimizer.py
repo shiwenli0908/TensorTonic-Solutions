@@ -13,7 +13,7 @@ def rmsprop_step(w, g, s, lr=0.001, beta=0.9, eps=1e-8):
     new_s = beta * s + (1 - beta) * g * g
 
     # Parameter update (adaptive learning rate)
-    new_w = w - lr / np.sqrt(new_s + eps) * g
+    new_w = w - lr * g / np.sqrt(new_s + eps)
 
     return new_w, new_s
     
